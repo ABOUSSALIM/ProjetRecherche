@@ -1,0 +1,45 @@
+# Type Reservation
+type Reservation {
+    id: ID
+      client: Client
+      chambre: Chambre
+      dateDebut: String
+      dateFin: String
+      preferences: String
+}
+type Client {
+    id: ID
+    nom: String
+    prenom: String
+    email: String
+    telephone: String
+}
+type Chambre {
+    id: ID
+    type: String
+    prix: String
+    disponible: String
+    telephone: String
+}
+
+# Entrées pour les mutations
+input ReservationRequest {
+       clientId: Float
+       chambreId: Float
+       dateDebut: String
+       dateFin: String
+       preferences: String
+}
+
+# Requêtes (Queries)
+type Query {
+    allReservations: [Reservation]
+    reservationById(id: ID!): Reservation
+}
+
+# Mutations
+type Mutation {
+    saveReservation(reservationRequest: ReservationRequest): Reservation
+    deleteReservation(id: ID): Boolean
+    updateReservation(id: ID, reservationRequest: ReservationRequest): Reservation
+}

@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5050/db2
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: graphql
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+grpc:
+  server:
+    port: 9095
+
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    host: /
+    port: 8080
